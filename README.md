@@ -24,3 +24,15 @@ Try not to be too bothered by the occasional `store.dispatch` inside a React com
 ## License
 
 The license for the code in this repository is the Open BSV License.
+
+
+## October2026 Node build security maintenance
+
+Build tooling uses Node22.23.4 with the retained frozen dependency lock and
+historical peer resolution. Hosted PR CI verifies native Node/Brotli and the
+retained source build with bounded registry requests. Application dependency
+versions and browser contracts remain unchanged. Obsolete Cloud Run automation
+is archived at `docs/legacy-cloud-run-deploy.yaml.txt` and cannot run. A successful
+build does not establish application or production-restoration acceptance.
+The retained Webpack4 compiler needs its legacy OpenSSL hash provider only in
+the offline bundle-build step. This flag is not configured in a serving runtime.
